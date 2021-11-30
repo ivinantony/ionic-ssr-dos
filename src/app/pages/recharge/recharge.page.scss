@@ -1,0 +1,46 @@
+
+  
+.card{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 240px;
+    border-radius: 25px;
+    box-shadow: none;
+
+    .flag{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h3{
+            font-size: 1rem;
+            padding-left: 10px;
+            letter-spacing: 1.1px;
+        }
+        img{
+            width: 23px;
+            height: 22px;
+        }
+    }
+
+    .text{
+        margin-left: 20px;
+        width: 90%;
+        h3{
+            font-size: 1.2rem;
+            color: #303030;
+        }
+    }
+  
+    .amount{
+      width: 200px;
+      font-size: 56px;
+      margin-top: 30px;
+      color: #434343;
+  }
+  
+  
+}
+

@@ -1,0 +1,128 @@
+ion-header{
+    --background:#fcfeff;
+    
+    ion-toolbar{
+        margin-top: 10px;
+  
+        --background:#fcfeff;
+        background:#fcfeff;
+       
+    }
+}
+ion-title{
+        h1{
+          
+            font-size: 18px;
+            padding-bottom: 10px;
+        }  
+}
+
+
+ion-content{
+    --background:#f5f5f5;
+ 
+    }
+img{
+    padding-top: 20px;
+    width: 20%; 
+}
+
+.icon{
+    padding-right:10px;
+}
+
+
+.wrapper{
+    padding: 10px;
+    
+    border-radius: 25px;
+    // min-height: 340px;
+    
+    h2{
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+    .item{
+        padding-bottom: 20px;
+
+    }
+}
+
+
+.ripple-parent
+ {
+    position: relative;
+    overflow: hidden;
+    color: #DB7093;
+}
+.content{
+   
+        width: 95%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        ion-list{
+            .ripples{
+                background:#f5f5f5;
+            }
+            .ripples:hover{
+                cursor: pointer;
+            }
+            --background:#f5f5f5;
+            ion-item{
+                --background:#f5f5f5;
+            }
+        }
+  
+}
+@media only screen and (max-width: 320px){
+
+}
+@media only screen and (min-width: 576px){
+    img{
+        padding-top: 20px;
+        width: 20%; 
+    }
+.wrapper{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+@media only screen and (min-width: 724px){
+    img{
+        padding-top: 20px;
+        width: 20%; 
+    }
+    .wrapper{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }  
+}
+@media only screen and (min-width: 992px){
+    img{
+        padding-top: 20px;
+        width: 20%; 
+    }
+    .wrapper{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+}
+@media only screen and (min-width: 1366px){
+    img{
+        padding-top: 20px;
+        width: 20%; 
+    }
+    .wrapper{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+}
+

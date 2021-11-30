@@ -1,0 +1,7 @@
+{
+  "name": "dealonstore",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

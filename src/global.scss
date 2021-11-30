@@ -1,0 +1,246 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+// * {
+//   font-family: "Nunito", sans-serif !important;
+//   outline: 0 !important;
+// }
+* {
+  font-family: "Sora", sans-serif !important;
+  outline: 0 !important;
+  cursor: pointer !important;
+}
+.paymentOptions {
+  height: 100%;
+  position: absolute;
+}
+
+.popover {
+  --min-width: 300px;
+}
+
+.install {
+  --height: calc(100% - 40%);
+  --max-height: calc(100% - 40%);
+  --min-height: calc(100% - 40%);
+  
+  --max-width: calc(100% - 30%);
+  --min-width: calc(100% - 30%);
+  --width: calc(100% - 30%);
+  background-color: var(--ion-color-light);
+  --border-radius: 12px;
+  }
+
+
+  .alert-class{
+    .alert-message{
+      img{
+        width: 27px !important;
+        height: 27px !important;
+        margin-bottom: -8px !important;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+      }
+    }
+  }
+
+  .custom_alert{
+    .modal-wrapper {
+      height: 260px;
+      width: 270px;
+      top: 30%;
+      // position: absolute;
+    }
+    // width: 270px !important;
+    // height: 270px !important;
+
+  }
+
+  .custom_alert_location_unavailable{
+    .modal-wrapper {
+      height: 285px;
+      width: 270px;
+      top: 30%;
+      // position: absolute;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
+    
+  }
+
+
+  
+.pagination {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pagination {
+display: -ms-flexbox;
+display: flex;
+padding-left: 0;
+list-style: none;
+border-radius: .25rem;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color:var(--ion-color-primary);
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: var(--ion-color-primary);
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.page-link:focus {
+  z-index: 3;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color:var(--ion-color-primary);
+  border-color: var(--ion-color-primary);
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.pagination-lg .page-link {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.pagination-lg .page-item:first-child .page-link {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.pagination-lg .page-item:last-child .page-link {
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.pagination-sm .page-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.pagination-sm .page-item:first-child .page-link {
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
+
+.pagination-sm .page-item:last-child .page-link {
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+}
+
+  @media only screen and (min-width: 769px) {
+  .install {
+  --height: calc(100% - 50%);
+  --max-height: calc(100% - 50%);
+  --min-height: calc(100% - 50%);
+  
+  --max-width: calc(100% - 70%);
+  --min-width: calc(100% - 70%);
+  --width: calc(100% - 70%);
+  background-color: var(--ion-color-light);
+  --border-radius: 12px;
+  }
+  }
+
+ 
+// .custom-toast-success {
+//   --background: #212121;
+//   color: white;
+//   --border-radius: 5px;
+//   --min-height: 75px;
+//   font-size: 17px;
+// }
+
+// .custom-toast-danger {
+//   --border-radius: 5px;
+//   --min-height: 75px;
+//   font-size: 17px;
+// }
+
+.cartmodal {
+  --min-width: 70vw;
+}
+
+@media screen and (max-width: 768px) {
+  .paymentOptions {
+    .modal-wrapper {
+      height: 70%;
+      top: 30%;
+      // position: absolute;
+    }
+  }
+}
+
+// @media (min-width:768px)
+// {
+
+// }
+// @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+//   ion-toolbar {
+//     display: none;
+//   }
+// }
+// @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+//   ion-toolbar {
+//     display: none;
+//   }
+// }

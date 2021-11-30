@@ -1,0 +1,68 @@
+<desktop-header></desktop-header>
+<ion-header class="ion-hide-md-up">
+  <ion-toolbar color="secondary" class="ion-hide-md-up">
+    <ion-title>Brands</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/tabs/home"
+        
+        color="light"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="refresh"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Refreshing..."
+    ></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid fixed>
+    <ion-row class="row">
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="6"
+        size-lg="3"
+        size-xl="3"
+        *ngFor="let item of brands; let i=index"
+      >
+        <ion-card
+          class="ion-no-margin card"
+          (click)="navigateToBrandProducts(i)"
+        >
+          <ion-card-content class="ion-text-center">
+            <img
+              style="
+                height: 120px;
+                width: 120px;
+                object-fit: contain;
+                object-position: center;
+              "
+              [src]="s3url + item.path"
+              alt=""
+            />
+          </ion-card-content>
+          <ion-card-header class="ion-text-center">
+            <ion-card-title class="text">{{item.brand_name}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll
+    threshold="100px"
+    (ionInfinite)="loadMoreContent($event)"
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

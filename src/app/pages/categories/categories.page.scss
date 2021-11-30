@@ -1,0 +1,132 @@
+// .prod{
+//     border: .1px solid rgb(232, 232, 232);
+//     background: #ffffff;
+//     margin-bottom: 5px;
+//     img{
+//       width: 140px;
+//       height: 140px;
+//     }
+    
+//   }
+
+ion-content{
+  // --background: url(../../../assets/imgs/whiteback.jpg);
+  // --background: #e047d414;;
+    --background-repeat: no-repeat;
+    --background-size: cover; 
+}
+
+  .row{
+    display: flex;
+    
+  }
+
+  .text{
+    h1{
+        font-family: Roboto,"sans-serif"!important;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      color: #444;
+      text-align: center;
+      padding-bottom: 15px;
+      margin-left: auto;
+    margin-right: auto;
+    }
+    
+  }
+
+  .round{
+    height: 8rem;
+    width: 13rem;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
+    border-radius: 10px;
+  border: 0.2px solid #C0C0C0;
+    // box-shadow:
+    // 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    // 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    // 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    // 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    // 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    // 0 100px 80px rgba(0, 0, 0, 0.12);
+  }
+.round:hover{
+  cursor: pointer;
+  transform: scale(1.2);  
+  }
+  
+
+  .catSection{
+    // background: #e047d414;
+    ion-item{
+      --background: #fff0;
+    }
+  }
+
+  ion-infinite-scroll-content{
+    --background: #e047d414;
+  }
+  
+  
+  .dsk{
+    display: none;
+  }
+
+
+  .row{
+    margin-top: 15px;
+}
+.card{
+    min-width: 192px;
+    min-height: 235px;
+    transition: transform .2s;
+    img{
+        transition: transform .2s;
+    }
+        
+}
+
+.card:hover{
+    
+        
+        transform: scale(1.03);
+        img{
+            transform: scale(1.3); 
+        }
+    
+}
+
+.text{
+  font-size: 15px;
+  font-family: Roboto,'Sans-Serif '!important;
+  letter-spacing: 1.25px;
+}
+
+
+
+  @media only screen and (min-width: 475px) {
+    .mob{
+      display: none;
+    }
+    .dsk{
+      display: block;
+    }
+    }
+
+    @media only screen and (max-width: 475px)
+    {
+
+      .round{
+        height: 6rem;
+        width: 8.5rem;
+      }
+
+    }
+
+    
+  

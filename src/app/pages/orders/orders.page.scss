@@ -1,0 +1,52 @@
+.whenEmpty{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    p{
+        color: #6CB4EE;
+    }
+  }
+
+  .btn{
+      height: 32px;
+    width: 74px;
+  }
+
+.wrapper{
+    margin-top: 50px;
+}
+  @media only screen and (max-width: 321px){}
+  @media only screen and (min-width: 576px)
+  {
+      .wrapper{
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+      }
+  }
+  @media only screen and (min-width: 768px)
+  {
+    .wrapper{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  @media only screen and (min-width: 992px)
+  {
+    .wrapper{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  @media only screen and (min-width: 1260px)
+  {
+    .wrapper{
+        width: 55%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }

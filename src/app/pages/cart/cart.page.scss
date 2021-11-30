@@ -1,0 +1,88 @@
+ion-thumbnail {
+  width: 75px;
+  height: 75px;
+  --border-radius: 10px;
+}
+.cart-btns {
+  border: 1px solid;
+  border-radius: 10px;
+}
+.login-card {
+  box-shadow: none;
+  border: 1px solid;
+}
+
+ion-item {
+  cursor: pointer;
+}
+.total {
+  --background: rgb(254, 252, 249);
+}
+.products{
+  ion-label{
+    margin-left: 12px;
+  }
+}
+
+.active{
+  display: block;
+}
+
+.inactive{
+  display: none;
+}
+
+.payment{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.whenEmpty{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  p{
+      color: #6CB4EE;
+  }
+}
+
+.outofstock{
+  padding-left: 20px;
+  padding-right: 20px;
+  h3{
+    font-size: 16px;
+    padding-left: 10px;
+    color:#eb445a;
+  }
+}
+
+.buttons
+{
+  display: flex;
+  margin-left: 20px;
+  div{
+    position: relative;
+    margin: 2px;
+    border: 0.3px solid #333;
+    padding: auto;
+    width: 30px;
+    height: 30px;
+    
+    ion-icon{
+      font-size: 22px;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  div:hover{
+    cursor: pointer;
+  }
+}

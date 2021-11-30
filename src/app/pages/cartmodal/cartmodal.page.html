@@ -1,0 +1,188 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+        <ion-button (click)="close()">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="refresh" pullingText="Pull to refresh" refreshingSpinner="crescent"
+      refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-grid fixed [ngClass]="cartLength > 0 ? 'active' : 'inactive'">
+    <ion-item lines="none">
+      <ion-label>
+        <ion-text color="primary">
+          <!-- <h3>{{address_selected.name ?  ''}}</h3> -->
+          <h3>
+            {{address_selected?.name ? 'Deliver to' :''}}
+          </h3>
+        </ion-text>
+        <p>{{address_selected?.full_address}}</p>
+        <!-- <p>{{address_selected?.full_address}}</p><p>{{address_selected?.landmark}}</p><p>{{address_selected?.phone}}</p> -->
+      </ion-label>
+      <ion-button
+        [color]="address_selected?.name ? 'dark':'primary'"
+        (click)="changeAddress()"
+        slot="end"
+        expand="block"
+        fill="outline"
+        style="font-weight: 600;font-size: 18px;"
+      >
+        {{address_selected?.name?'Change':'Select an address'}}
+      </ion-button>
+    </ion-item>
+    <ion-row>
+      <ion-col size-sm="12" size-md="12" size-lg="12" size-xl="12">
+        <ion-list-header>
+          <ion-label> Summary </ion-label>
+        </ion-list-header>
+        <ion-list *ngFor="let item of cart; let i=index">
+          <ion-item lines="none">
+            <ion-label>
+              <h5>{{item.name}}</h5>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="products" >
+            <ion-item lines="none" (click)="navigateToProduct(i)" class="ion-no-padding">
+              <ion-thumbnail>
+                <img src="{{item.images[0].path}}">
+              </ion-thumbnail>
+             
+            </ion-item>
+            
+            <ion-button slot="end" icon-only (click)="remove(i,item.id)" fill="clear">
+            <ion-icon name="trash-outline"></ion-icon>  
+            </ion-button>
+            
+            <ion-buttons class="cart-btns" slot="end">
+              <ion-button (click)="subtract(i,item.id)">
+                <ion-icon slot="start" color="danger" name="remove"></ion-icon>
+              </ion-button>
+              <ion-button color="dark">{{item.count}}</ion-button>
+              <ion-button (click)="add(i,item.id)">
+                <ion-icon slot="start" color="danger" name="add" ></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+
+          <ion-item *ngIf="item.in_stock == 1">
+            <ion-label *ngIf="item.offer_price != null"><p>{{ item.offer_price | currency:'AED ' }} * {{item.count}}</p></ion-label>
+            <ion-label *ngIf="item.offer_price == null"><p>{{ item.price | currency:'AED ' }} * {{item.count}}</p></ion-label>
+
+
+           
+            <ion-button expand="block" fill="clear" shape="round">
+              {{ item.total_price | currency:'AED ' }}
+            </ion-button>
+          </ion-item>
+
+          <ion-item *ngIf="item.in_stock == 0" class="outofstock">
+            <ion-icon name="ban" color="danger"></ion-icon>
+            <h3>This item is currently out of stock.</h3>
+          </ion-item>
+          <hr />
+        </ion-list>
+   
+        <ion-list>
+          <ion-item lines="none" class="total">
+            <ion-button
+              color="dark"
+              slot="start"
+              expand="block"
+              fill="clear"
+            >
+              Total amount
+            </ion-button>
+            <ion-button
+              color="dark"
+              slot="end"
+              expand="block"
+              fill="clear"
+            >
+              {{ amountDetails?.total_amount | currency:'AED ' }}
+            </ion-button>
+          </ion-item>
+         
+          <ion-item class="total" lines="none">
+            <ion-button
+              size="small"
+              color="dark"
+              slot="start"
+              expand="block"
+              fill="clear"
+            >
+              Discount
+            </ion-button>
+            <ion-button
+              color="dark"
+              slot="end"
+              expand="block"
+              fill="clear"
+              size="small"
+            >
+            {{ amountDetails?.saved_amount | currency:'AED ' }}
+            </ion-button>
+          </ion-item>
+          <ion-item lines="none" class="total">
+            <ion-button
+              style="font-weight: bold"
+              color="dark"
+              slot="start"
+              expand="block"
+              fill="clear"
+            >
+              Total Amount
+            </ion-button>
+            <ion-button
+              style="font-weight: bold"
+              color="dark"
+              slot="end"
+              expand="block"
+              fill="clear"
+              size="small"
+            >
+            {{ amountDetails?.payable_amount | currency:'AED ' }}
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+
+
+<div class="ion-text-center whenEmpty" [ngClass]="cartLength > 0 ? 'inactive' : 'active' " alt="">
+
+  <img src="../../../assets/imgs/icons/empty-cart.png" />
+  <p>The cart is empty.</p>
+  <ion-button (click)="continueShopping()" fill="outline" shape="round">
+    <ion-icon slot="start" name="add"></ion-icon>
+    Continue Shopping
+  </ion-button>
+</div>
+
+
+</ion-content>
+
+<ion-footer *ngIf="cartLength > 0"> 
+  <ion-toolbar>
+    <ion-button
+      
+      slot="end"
+      color="primary"
+      (click)="continue()"
+    >
+      <ion-icon slot="end" name="chevron-forward"></ion-icon>
+      CONTINUE
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- [disabled]="!selectedAddress || !payment_id" -->

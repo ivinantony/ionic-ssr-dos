@@ -1,0 +1,41 @@
+.menu-header-bg {
+  height: 180px;
+  width: 350px;
+  background-color: #c0c0c0;
+  box-shadow: 0px 1px 10px rgba(192, 192, 192, 0.6);
+  transform: rotate(-15deg);
+  border-radius: 10px 10px 10px 50px;
+  margin-left: -18px;
+  margin-top: -50px;
+  margin-bottom: 60px;
+}
+.header-content {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-width: 43%;
+  }
+}
+
+#cart-badge {
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  padding: 3px;
+  font-size: 10px;
+}
+
+ion-split-pane {
+  --side-max-width: 12%;
+}
+
+ion-item.selected {
+  --color: var(--ion-color-primary);
+}
+ion-toolbar {
+  --border-width: 0px !important;
+}

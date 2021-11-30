@@ -1,0 +1,161 @@
+
+<ion-header class="ion-hide-md-up">
+  <ion-toolbar color="secondary">
+    <ion-title>Checkout</ion-title>
+    <ion-buttons slot="start" mode="ios">
+      <ion-back-button defaultHref="/tabs/cart"  color="light"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-button (click)="replace()" expand="block" fill="clear" shape="round">
+success  </ion-button> -->
+<div class="wrapper">
+  <ion-card class="card">
+    <div class="ion-text-center cartImage">
+      <img src="../../../assets/imgs/shopping-cart.svg" /> 
+    </div>
+    
+    <ion-card-header>
+      <ion-card-subtitle>Bill Details</ion-card-subtitle>
+      
+    </ion-card-header>
+    <div class="payDetails">
+      <ion-list>
+        <ion-item lines="none" class="total">
+          <ion-button
+            color="dark"
+            slot="start"
+            expand="block"
+            fill="clear"
+          >
+            Total Amount
+          </ion-button>
+          <ion-button
+            color="dark"
+            slot="end"
+            expand="block"
+            fill="clear"
+          >
+            {{ data?.total_amount | currency:'AED  ' }}
+          </ion-button>
+        </ion-item>
+        <ion-item lines="none"> 
+          <ion-button
+            color="dark"
+            slot="start"
+            expand="block"
+            fill="clear"
+          >
+            Delivery Charges
+          </ion-button>
+          <ion-button
+            color="dark"
+            slot="end"
+            expand="block"
+            fill="clear"
+          >
+            {{ data?.delivery_charge | currency:'AED  ' }}
+          </ion-button>
+        </ion-item >
+        <ion-item class="total" lines="none" *ngIf="discount_amount>0">
+          <ion-button
+            size="small"
+            color="dark"
+            slot="start"
+            expand="block"
+            fill="clear"
+          >
+            Discount
+          </ion-button>
+          <ion-button
+            color="dark"
+            slot="end"
+            expand="block"
+            fill="clear"
+            size="small"
+          >
+          {{ discount_amount| currency:'AED  ' }}
+          </ion-button>
+        </ion-item>
+
+        <ion-item class="total" lines="none" >
+          <ion-button
+            size="small"
+            color="dark"
+            slot="start"
+            expand="block"
+            fill="clear"
+            *ngIf="!promo_id"
+          >
+          <ion-icon
+         slot="start"
+         color="danger"
+        src="assets/imgs/discount.svg">
+        </ion-icon>
+            APPLY PROMO CODE
+          </ion-button>
+
+          <ion-button
+            size="small"
+            color="dark"
+            slot="start"
+            expand="block"
+            fill="clear"
+            *ngIf="promo_id"
+          >
+          <ion-icon
+         slot="start"
+         color="danger"
+        src="assets/imgs/discount.svg">
+        </ion-icon>
+           APPLIED
+          </ion-button>
+
+          <ion-button (click)="openPromo()" color="primary" slot="end" *ngIf="!promo_id" fill="outline"  >
+            Select
+          </ion-button>
+          <ion-button (click)="removePromo()" color="primary" slot="end" *ngIf="promo_id" fill="outline">
+            Remove
+          </ion-button>
+        </ion-item>
+        
+        <ion-item lines="none" class="total">
+          <ion-button
+            style="font-weight: bold"
+            color="dark"
+            slot="start"
+            expand="block"
+            fill="clear"
+          >
+            Payable Amount
+          </ion-button>
+          <ion-button
+            style="font-weight: bold"
+            color="dark"
+            slot="end"
+            expand="block"
+            fill="clear"
+            size="small"
+          >
+          {{ data?.payable_amount | currency:'AED  ' }}
+          </ion-button>
+        </ion-item>
+        
+     
+          <ion-col size="5">
+            <ion-button (click)="openPaymentModes()" expand="full"  shape="round" color="tertiary"  >
+              CHECKOUT
+            </ion-button>
+          </ion-col>
+  
+      </ion-list>
+    </div>
+
+  </ion-card>
+</div>
+  
+  </ion-content>
+
+ 

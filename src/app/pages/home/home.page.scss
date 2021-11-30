@@ -1,0 +1,411 @@
+ion-header {
+  // --background:#37966f;
+  --background: #ffffff;
+}
+ion-toolbar {
+  // --background:#fd5523;
+  --background: #c0c0c0;
+  --border-width: 0px !important;
+  ion-icon {
+    font-size: 1.2rem;
+  }
+}
+
+ion-slide:hover {
+  cursor: pointer;
+}
+
+#cart-btn {
+  position: relative;
+  // ion-icon {
+  //   font-size: 22px;
+  // }
+}
+
+#cart-badge {
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  padding: 3px;
+  font-size: 10px;
+}
+#notf-badge {
+  position: absolute;
+  top: 5px;
+  right: -5px;
+}
+.spinner-container {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.heading {
+  font-weight: bold;
+  background: -webkit-linear-gradient(45deg, #203a43, #0f2027, #2c5364);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.notification {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  top: 2px;
+  right: 2px;
+  background: var(--ion-color-danger);
+}
+
+.banr {
+  .firstCol {
+    .main {
+      height: 100%;
+      .imge {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .col {
+    padding: 2px;
+    .main {
+      height: 100%;
+      .imge {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+.banner {
+  ion-slide {
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
+.title {
+  font-weight: bold;
+  padding-top: 10px;
+  font-size: 18px;
+}
+.img-card {
+  box-shadow: none;
+  border-radius: 0px;
+  background: transparent;
+  margin: 0px;
+  .img-wrapper {
+    margin: 10px;
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+  p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+// .sliderWrapper{
+//   width: 90%;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+.top-search {
+  padding-bottom: 16px;
+  padding-top: 16px;
+  width: 90%;
+
+  ion-card {
+    margin: 16px 0px 16px 16px;
+    width: 100%;
+    height: 253px;
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.recommended {
+  // .swiper-slide-prev {
+  //   opacity: 0.5;
+  // }
+  // .swiper-slide-next {
+  //   opacity: 0.5;
+  // }
+  // .swiper-slide-active {
+  //   transform: scale(1.1);
+  // }
+  padding-bottom: 16px;
+  padding-top: 16px;
+  img {
+    height: 127px;
+  }
+  ion-slide {
+    height: 200px;
+    min-width: 180px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  ion-card {
+    margin: 16px 0px 16px 16px;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+ion-item.selected {
+  --color: #00b4dbff;
+}
+
+picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+picture img {
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+}
+
+#searchByManufactures {
+  ion-card-title {
+    font-size: 15px;
+  }
+  margin-bottom: 20px;
+}
+
+.dsk {
+  display: none;
+}
+
+#cards {
+  margin-top: 30px;
+  h3 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+  p {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .icons {
+    font-size: 56px;
+    margin-top: 10px;
+    color: #9f1f63;
+  }
+
+  .kard {
+    // min-height: 237px;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    box-shadow: none;
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+  }
+  ion-col {
+    border-right: 1px solid #e5e5e5;
+  }
+}
+
+.footer {
+  color: #ffff;
+  margin-top: 50px;
+  padding-top: 70px;
+  background-color: #232020;
+  p {
+    color: #a09292;
+  }
+
+  .text {
+    max-width: 200px;
+  }
+  .footerWrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1.3px;
+  }
+  .social {
+    padding: 0px;
+    list-style: none;
+    font-size: 24px;
+    display: flex;
+    li {
+      padding-right: 25px;
+    }
+  }
+  .links {
+    list-style: none;
+    padding: 0px;
+  }
+  .accept {
+    margin-top: 38px;
+  }
+
+  .logosPayment {
+    display: flex;
+  }
+  .payIcon {
+    color: #a09292;
+  }
+  .payLogo {
+    width: 48px;
+    height: 36px;
+  }
+}
+
+.faa {
+  color: #fff;
+}
+
+#top {
+  position: relative;
+  img {
+    height: 127px;
+  }
+  ion-slide {
+    height: 280px;
+    min-width: 180px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
+
+.morebtn {
+  // opacity: 0.7;
+  margin-bottom: 19px;
+  margin-top: 15px;
+  letter-spacing: 1.5px;
+  ion-button {
+    letter-spacing: 0.5px;
+  }
+}
+
+.btnslide {
+  background-color: #fff;
+  opacity: 0.9;
+  z-index: 1;
+  margin: 0;
+  right: 0px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #444;
+  font-size: 28px;
+  width: 73px;
+}
+.btnslideleft {
+  background-color: #fff;
+  opacity: 0.9;
+  z-index: 1;
+  margin: 0;
+  left: 0px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #444;
+  font-size: 28px;
+  width: 73px;
+}
+
+.banner {
+  .mob {
+    img {
+      object-fit: cover;
+    }
+  }
+}
+
+.logoHdr {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+
+.footer {
+  li:hover {
+    cursor: pointer;
+  }
+}
+
+.policies {
+  p:hover {
+    cursor: pointer;
+  }
+}
+
+.main {
+  img:hover {
+    cursor: pointer;
+  }
+}
+
+.col {
+  img:hover {
+    cursor: pointer;
+  }
+}
+
+.brandCard:hover {
+  cursor: pointer;
+  img {
+    transform: scale(1.1);
+  }
+}
+
+.skelton {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.top-deals-name{
+  margin-bottom: 5px;
+}
+@media only screen and (max-width: 768px) {
+  .btnslide {
+    display: none;
+  }
+  .btnslideleft {
+    display: none;
+  }
+}
+@media only screen and (min-width: 475px) {
+  .mob {
+    display: none;
+  }
+  .dsk {
+    display: block;
+  }
+}

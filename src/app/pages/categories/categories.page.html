@@ -1,0 +1,124 @@
+<desktop-header></desktop-header>
+<ion-header class="ion-hide-md-up">
+  <ion-toolbar color="secondary" class="ion-hide-md-up">
+    <ion-title>Categories</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+      defaultHref="/tabs/home"
+      
+      color="light"
+    ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="refresh"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Refreshing..."
+    ></ion-refresher-content>
+  </ion-refresher>
+
+  <section>
+    <ion-slides [options]="bannerSlideOpts">
+      <!-- <ion-slide
+        *ngFor="let item of banners?.desktop_images; let i=index"
+        (click)="onRoute(item.application_url)"
+      >
+        <img [src]="s3url + item?.path" alt="" />
+      </ion-slide> -->
+
+      <ion-slide
+      *ngFor="let item of banners?.desktop_images; let i=index"
+      class="dsk"
+      (click)="onRoute(item.application_url)"
+    >
+      <img [src]="s3url + item?.path" alt="" />
+    </ion-slide>
+
+    <ion-slide
+      *ngFor="let item of banners?.mobile_images; let i=index"
+      class="mob"
+      (click)="onRoute(item.application_url)"
+    >
+      <img [src]="s3url + item?.path" alt="" />
+    </ion-slide>
+      
+    </ion-slides>
+  </section>
+
+  <!-- <ion-grid class="catSection">
+    <ion-row>
+      <ion-col size="12" size-sm="12" size-md="12" size-xl="12" size-lg="12">
+        <ion-grid>
+          <ion-row class="row">
+            <ion-col
+              size="6"
+              size-sm="6"
+              size-md="6"
+              size-lg="3"
+              size-xl="3"
+              *ngFor="let item of categories; let i=index"
+              (click)="navigateToProducts(i)"
+              class="ion-text-center prod"
+            >
+              <div
+                class="ion-text-center round"
+                [ngStyle]="{'background-image': 'url( '+ s3url + item?.path +' )'}"
+              ></div>
+
+              <ion-item class="text" lines="none">
+                <h1>{{item.category_name}}</h1>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-grid fixed>
+    <ion-row class="row">
+      <ion-col
+        size="12"
+        size-sm="12"
+        size-md="6"
+        size-lg="3"
+        size-xl="3"
+        *ngFor="let item of categories; let i=index"
+      >
+        <ion-card
+          class="ion-no-margin card"
+          (click)="navigateToProducts(i)"
+        >
+          <ion-card-content class="ion-text-center">
+            <img
+              style="
+                height: 120px;
+                width: 120px;
+                object-fit: contain;
+                object-position: center;
+              "
+              [src]="s3url + item.path"
+              alt=""
+            />
+          </ion-card-content>
+          <ion-card-header class="ion-text-center">
+            <ion-card-title class="text">{{item.category_name}}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll threshold="15%" (ionInfinite)="loadMoreContent($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

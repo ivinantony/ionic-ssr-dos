@@ -1,0 +1,62 @@
+<desktop-header></desktop-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary" class="ion-hide-md-up">
+    <ion-title>Search</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="ion-no-border search">
+        <ion-searchbar
+          placeholder="Search for products, brands and more"
+          showCancelButton="focus"
+          [formControl]="searchTerm"
+          (ionCancel)="onCancel()"
+          (ionChange)="onSearchInputMobile()"
+          class="searchbar"
+        >
+        </ion-searchbar>
+      </ion-toolbar>
+    </ion-header>
+    <ng-container
+      *ngIf="result.length > 0; then thenTemplate; else elseTemplate"
+    ></ng-container>
+
+    <ng-template #thenTemplate>
+      <ion-item
+        *ngFor="let item of result ; let i=index"
+        (click)="viewSearchProduct(i)"
+        detail
+      >
+      <ion-thumbnail style="margin: 3px 5px;">
+        <img [src]="s3url + item?.path" alt="" />
+       </ion-thumbnail>
+     <ion-label>
+      
+      <!-- <h3>{{ item?.name }} {{item?.brand_name}} {{item?.category_name}}</h3>
+      <p>{{item?.part_number}}</p> -->
+      <ion-text color="primary">
+        <h3>  {{ item.name ?item.name:item.category_name?item.category_name:item.brand_name }}</h3>
+      </ion-text>
+      <ion-text color="secondary">
+      <p> in {{  item.name ?"Products":item.category_name?"Categories":"Manufacturers" }}</p>
+      </ion-text>
+     </ion-label>
+      </ion-item>
+    </ng-template>
+
+    <ng-template #elseTemplate>
+      <div *ngIf="isSearchResult">
+        <ion-item lines="none" class="ion-text-center" >
+          <ion-label>No results found.</ion-label>
+        </ion-item>
+      </div>
+      
+    </ng-template>
+  </ion-grid>
+</ion-content>

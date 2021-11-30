@@ -1,0 +1,336 @@
+<desktop-header></desktop-header>
+
+<ion-header class="ion-hide-md-up"> 
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{productDetails?.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="ion-hide-md-up" (click)="router.navigate(['/tabs/cart'])">
+        <ion-icon src="../assets/imgs/icons/cart.svg"></ion-icon>
+        <ion-badge id="cart-badge" color="primary" *ngIf="cart_count > 0"
+          >{{cart_count}}</ion-badge
+        >
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="wrapper">
+    <div class="main">
+      <div class="productImageSec leftSec">
+        <div class="card">
+          <ion-slides [options]="slidesOptions" pager="true" #slides>
+            <ion-slide *ngFor="let item of productDetails?.images">
+              <lib-ngx-image-zoom
+                thumbImage="{{item.path}}"
+                [magnification]="2"
+                class="imge"
+              ></lib-ngx-image-zoom>
+            </ion-slide>
+          </ion-slides>
+
+          <div class="thumbnailWrapper">
+            <div
+              class="thumbnail"
+              (click)="slideTo(i)"
+              *ngFor="let item of productDetails?.images;let i=index"
+            >
+              <div>
+                <ion-thumbnail>
+                  <img src="{{item.path}}"  onError="this.src = '../../assets/imgs/user.png'"/>
+                </ion-thumbnail>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <ion-button fill="solid" (click)="addToWishlist()" class="wish" color="light">
+              
+          <ion-icon slot="icon-only" [name]="productDetails?.wishlist==true? 'heart' : 'heart-outline'" color="primary" ></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="rightSec">
+        <div class="textblock">
+          <h1>{{productDetails?.name}}</h1>
+        </div>
+
+        <section class="ion-padding-horizontal">
+          <ion-row>
+            <ion-col size="12" class="price">
+              <ion-label style="background: #f2f2f2">
+                <h1>{{ productDetails?.offer_price | currency:'AED ' }}</h1>
+                <h1 *ngIf="productDetails?.offer_price == null">
+                  {{ productDetails?.price | currency:'AED ' }}
+                </h1>
+                <h6
+                  *ngIf="productDetails?.offer_price != null"
+                  color="danger"
+                  class="offerPrice"
+                >
+                  {{ productDetails?.price | currency:'AED ' }}
+                </h6>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </section>
+
+        <div>
+          <ion-row>
+            <ion-col
+              size="5"
+              class="ion-padding-vertical"
+              *ngIf="data?.product.in_stock > 0 && data?.product.cart_count == 0"
+            >
+              <section>
+                <!-- <ion-toolbar>
+                  <ion-buttons
+                    slot="start"
+                    style="border: 1px solid #565656; border-radius: 10px"
+                  >
+                    <ion-button (click)="qtyDecrease()">
+                      <ion-icon slot="start" name="remove"></ion-icon>
+                    </ion-button>
+                    <ion-button> {{qty}} </ion-button>
+                    <ion-button (click)="qtyIncrease()">
+                      <ion-icon slot="start" name="add"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>
+                </ion-toolbar> -->
+              </section>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col
+              size="6"
+              class="addtocart"
+              *ngIf="data?.product.cart_count == 0"
+            >
+              <ion-button
+                (click)="addToCart()"
+                color="primary"
+                expand="block"
+                
+              >
+                ADD TO CART
+              </ion-button>
+            </ion-col>
+            <ion-col
+              size="6"
+              class="addtocart"
+              *ngIf="data?.product.cart_count > 0"
+            >
+              <ion-button
+                (click)="goToCart()"
+                color="primary"
+                expand="block"
+               
+              >
+                GO TO CART
+              </ion-button>
+            </ion-col>
+            <ion-col
+              size="6"
+              size-sm="5"
+              size-md="4"
+              size-lg="4"
+              size-xl="4"
+              class="addtocart"
+            >
+              <ion-button
+                (click)="buyNow()"
+                color="secondary"
+                expand="block"
+               
+              >
+                BUY NOW
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="productDesc">
+          <ion-row>
+            <ion-col size="12" class="ion-padding description">
+             <!--  <ion-text color="dark">
+                <ion-item
+                  class="ion-no-padding"
+                  lines="none"
+                  *ngIf="data?.product.in_stock == 1"
+                >
+                  <h3 class="ion-margin-top">Availability :</h3>
+                  &nbsp;
+                  <h5 class="inStock">In Stock</h5>
+                </ion-item>
+              </ion-text> -->
+
+              <!-- <ion-text color="dark">
+                <ion-item
+                  class="ion-no-padding"
+                  lines="none"
+                  *ngIf="data?.product.in_stock == 0"
+                >
+                  <h3 class="ion-margin-top">Availability :</h3>
+                  &nbsp;
+                  <h5 class="outofStock">Out Of Stock</h5>
+                </ion-item>
+              </ion-text> -->
+
+              <ion-text color="dark">
+                <ion-item
+                  class="ion-no-padding"
+                  lines="none"
+                  *ngIf="productDetails?.part_number"
+                >
+                  <h3 class="ion-margin-top">Part Number :</h3>
+                  &nbsp;
+                  <h5>{{productDetails?.part_number}}</h5>
+                </ion-item>
+              </ion-text>
+
+              <ion-text color="dark">
+                <ion-item
+                  class="ion-no-padding"
+                  lines="none"
+                  *ngIf="productDetails?.substitute_part_number"
+                >
+                  <h3 class="ion-margin-top">Substitute Part Number :</h3>
+                  &nbsp;
+                  <h5>{{productDetails?.substitute_part_number}}</h5>
+                </ion-item>
+              </ion-text>
+
+              <ion-text color="dark">
+                <ion-item class="ion-no-padding" lines="none">
+                  <h3 class="ion-margin-top">Manufacturer :</h3>
+                  &nbsp;
+                  <h5>{{productDetails?.brand_name}}</h5>
+                </ion-item>
+              </ion-text>
+
+              <ion-text color="dark">
+                <ion-item
+                  class="ion-no-padding"
+                  lines="none"
+                  *ngIf="productDetails?.quantity"
+                >
+                  <h3 class="ion-margin-top">Net Quantity :</h3>
+                  &nbsp;
+                  <h5>{{productDetails?.quantity}}</h5>
+                </ion-item>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="sizeSection">
+          <ion-row>
+            <ion-col size="12" class="ion-padding contact">
+              <div>
+                <ion-text color="dark">
+                  <p><b> Get more details. Contact us on</b></p>
+                  <img
+                    src="../../../assets/imgs/icons/whatsapp.svg"
+                    alt=""
+                    (click)="whatsapp()"
+                    class="ikon"
+                    
+                  />
+
+                  or
+                  <img
+                    src="../../../assets/imgs/icons/gmail.svg"
+                    alt=""
+                    (click)="mail()"
+                    class="ikon"
+                  />
+                </ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="ion-padding" *ngIf="productDetails?.description">
+          <ion-item class="ion-no-padding details" lines="none">
+            <h3 class="ion-margin-top">Product Details:</h3>
+          </ion-item>
+          <quill-view
+            [content]="productDetails?.description"
+            format="text"
+            theme="snow"
+          ></quill-view>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+  <hr class="ion-margin-horizontal" />
+
+
+    <ion-row>
+      <ion-col size="12">
+        <section id="recommended">
+          <ion-item lines="none" class="ion-text-center">
+            <ion-label class="title">Recommended For You</ion-label>
+          </ion-item>
+          <div class="sliderWrapper">
+          <ion-slides [options]="recommendedSlides" class="recommended" #mySlider>
+            <ion-slide
+              *ngFor="let item of data?.category_products; let i=index"
+              (click)="navigateToProduct(i)"
+            >
+              <ion-card>
+                <img src="{{s3url+item.images[0]?.path}}" alt="" />
+                <ion-card-content class="ion-no-padding">
+                  <p>{{item.name}}</p>
+                </ion-card-content>
+                <ion-text
+                class="ion-text-center"
+                color="primary"
+                [ngStyle]="{'display': item?.offer_price?'':'none'}"
+              >
+                <h6 class="ion-no-margin"><b> {{ item.offer_price | currency:'AED ' }}</b></h6>
+              </ion-text>
+              <ion-text
+                class="ion-text-center"
+                color="dark"
+                [ngStyle]="{'text-decoration': item?.offer_price ? 'line-through':'none'}"
+              >
+                <p style="font-size: 12px" class="ion-no-margin">
+                  <b>{{ item.price | currency:'AED ' }}</b>
+                  
+                </p>
+              </ion-text>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+          <ion-button
+          (click)="swipeNext()"
+          expand="block"
+          fill="clear"
+          shape="round"
+          class="btnslide ion-no-padding"
+        >
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+        <ion-button
+          (click)="swipePrev()"
+          expand="block"
+          fill="clear"
+          shape="round"
+          class="btnslideleft ion-no-padding"
+        >
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+        </div>
+        </section>
+      </ion-col>
+    </ion-row>
+
+</ion-content>
+

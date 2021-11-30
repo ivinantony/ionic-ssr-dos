@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        color="light"
+        defaultHref="/edit-profile"
+        
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  
+    <ion-card mode="ios" class="card main">
+    <div style="width: 100%" class="ion-text-center">
+      <ion-label>Please check your Email inbox for a 4 digit OTP and enter it here.</ion-label>
+      <ion-item class="ion-text-center" lines="none">
+      <ion-input placeholder="-  -  -  -" autocapitalize="off" autocomplete="off" autocorrect="off" minlength="4" maxlength="4"  name="otp" type="tel" [(ngModel)]="inputOtp"  class="otp"></ion-input>
+      </ion-item>
+      <ion-button
+        (click)="continue()"
+        class="ion-margin-vertical"
+        expand="block"
+        color="dark"
+      >
+        Continue
+      </ion-button>
+      <ion-button
+        (click)="cancel()"
+        class="ion-margin-vertical"
+        expand="block"
+        fill="outline"
+        color="medium"
+      >
+        Cancel
+      </ion-button>
+    </div>
+  </ion-card>
+
+</ion-content>
+
